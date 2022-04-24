@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+    image: deusprotiv/skypro_hw
+    ports:
+      - 8000:80
+    volumes:
+      - ./volumes:/code/volumes/project.db
+    env_file:
+      - ./env.list
