@@ -5,7 +5,12 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY ./project ./project
 COPY ./tests ./tests
-#COPY create_tables.py .
+COPY create_tables.py .
+RUN python create_tables.py
+COPY fixtures.json .
+COPY load_fixtures.py .
+RUN python load_fixtures.py
+
 COPY run.py .
 #COPY volumes/project.db .
 
